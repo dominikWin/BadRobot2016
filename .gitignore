@@ -1,10 +1,14 @@
-/OI.class
-/Robot.class
-/RobotMap.class
-.classpath
-.settings/org.eclipse.jdt.ui.prefs
+# Build folders
 bin/
-.settings/
-/bin/
 build/
 dist/
+
+# Classes
+*.class
+
+# Swap files
+*~
+
+# Eclipse files
+.classpath
+.settings/
