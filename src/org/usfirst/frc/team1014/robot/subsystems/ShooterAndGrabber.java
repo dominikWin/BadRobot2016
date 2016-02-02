@@ -2,6 +2,7 @@ package org.usfirst.frc.team1014.robot.subsystems;
 
 import org.usfirst.frc.team1014.robot.RobotMap;
 
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.Talon;
@@ -14,6 +15,11 @@ public class ShooterAndGrabber extends BadSubsystem
 	private SpeedController left, right, rotator;
 	private Relay ringLight;
 
+	private int targetRPM;
+	private boolean direction;
+	private Encoder encoder;
+	private long startTime;
+	
 	public static ShooterAndGrabber getInstance()
 	{
 		if(instance == null)
@@ -30,6 +36,14 @@ public class ShooterAndGrabber extends BadSubsystem
 		right = new Talon(RobotMap.shooterRight);
 		rotator = new Talon(RobotMap.shooterRotator);
 		ringLight = new Relay(RobotMap.ringLight);
+		
+		targetRPM = 0;
+		direction = true;
+		
+		startTime = System.currentTimeMillis();
+		
+		//TODO: Initialize Encoder
+//		encoder = new 
 	}
 
 	public void rotate(double speed)
@@ -42,7 +56,7 @@ public class ShooterAndGrabber extends BadSubsystem
 		left.set(speed);
 		right.set(-speed);
 	}
-
+	
 	public void grab(double speed)
 	{
 		left.set(-speed);
