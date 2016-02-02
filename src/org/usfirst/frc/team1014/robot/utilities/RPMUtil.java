@@ -36,8 +36,12 @@ public class RPMUtil extends Thread {
 	}
 	
 	public static void init() {
-		if (instance != null)
+		if (instance != null) {
+			if (instance.measurements != null)
+				instance.measurements.clear();
+			
 			return;
+		}
 		
 		instance = new RPMUtil();
 		instance.start();
@@ -66,6 +70,8 @@ public class RPMUtil extends Thread {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			
+			System.out.println("RPM: " + getAvarageRPM(5));
 		}
 	}
 }
