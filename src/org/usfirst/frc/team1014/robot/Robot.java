@@ -2,6 +2,7 @@ package org.usfirst.frc.team1014.robot;
 
 import org.usfirst.frc.team1014.robot.commands.CommandBase;
 import org.usfirst.frc.team1014.robot.commands.TeleopGroup;
+import org.usfirst.frc.team1014.robot.utilities.RPMUtil;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -66,6 +67,8 @@ public class Robot extends IterativeRobot
 		if(autonomousCommand != null)
 			autonomousCommand.cancel();
 		Scheduler.getInstance().add(new TeleopGroup());
+		
+		RPMUtil.init();
 	}
 
 	/**
